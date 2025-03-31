@@ -118,7 +118,10 @@ function App() {
 
   // Render the camera view (simulated)
   const renderCameraView = () => (
-    <div className="flex flex-col items-center justify-center h-64 bg-gray-900 rounded-lg relative overflow-hidden">
+    <div className="flex flex-col items-center justify-center h-64 bg-gray-900 rounded-lg relative overflow-hidden relative">
+      {/* <div className="w-full h-full absolute inset-0 bg-gray-800 opacity-50 z-10">
+        <img src="https://www.bioras.com/wp-content/uploads/2016/11/Netgear_swich-1.jpg" alt="Logo" className="w-full h-full" />
+      </div> */}
       {cameraActive ? (
         <>
           <div className="absolute inset-0 bg-black opacity-75"></div>
@@ -126,7 +129,7 @@ function App() {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-2 border-blue-500 animate-pulse"></div>
         </>
       ) : (
-        <>
+        <div className="flex flex-col items-center justify-center relative z-50">
           <div className="text-gray-400 mb-4">
             Point camera at device or cable QR code
           </div>
@@ -136,7 +139,7 @@ function App() {
           >
             <Scan className="mr-2" size={18} /> Start Scanning
           </button>
-        </>
+        </div>
       )}
     </div>
   );
